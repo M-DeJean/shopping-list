@@ -20,7 +20,12 @@ $(function main() {
       </li>`
     );
   });
-  $('.shopping-item-delete').click(function (e) {
-    this.closest('li').remove();
+
+  $('.shopping-list').on('click', '.shopping-item-toggle', function (e) {
+    $(this).closest('li').find('.shopping-item').toggleClass('shopping-item__checked');
+  });
+
+  $('.shopping-list').on('click', '.shopping-item-delete', function (e) {
+    $(this).closest('li').remove();
   });
 });
