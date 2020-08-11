@@ -1,9 +1,9 @@
 'use strict';
 
-function main() {
+$(function main() {
 
   $('#js-shopping-list-form').submit(function (e) {
-    e.preventdefault();
+    e.preventDefault();
     let item = $('#shopping-list-entry').val();
     console.log(item);
     $('.shopping-list').append(
@@ -17,9 +17,10 @@ function main() {
           <span class="button-label">delete</span>
           </button>
         </div>
-      </li>`);
+      </li>`
+    );
   });
-
-}
-
-$(main);
+  $('.shopping-item-delete').click(function (e) {
+    this.closest('li').remove();
+  });
+});
